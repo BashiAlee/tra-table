@@ -1,18 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { NgModule, Injector } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { createCustomElement } from '@angular/elements';
+import { TestComponent } from './components/test/test.component';
+import { HotTableModule } from '@handsontable/angular';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpClientModule,
+    HotTableModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [TestComponent],
+  entryComponents: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+    const el = createCustomElement(AppComponent, { injector });
+    customElements.define('tra-table', el);
+  }
+  ngDoBootstrap() {}
+}
