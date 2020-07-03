@@ -19,7 +19,7 @@ import { HotTableModule } from '@handsontable/angular';
     HotTableModule
   ],
   providers: [],
-  bootstrap: [TestComponent],
+  bootstrap: [],
   entryComponents: [AppComponent],
 })
 export class AppModule {

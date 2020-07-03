@@ -154,7 +154,10 @@ export class AppComponent implements OnChanges{
     });
   }
 
-  ngOnChanges() {
+  async ngOnChanges() {
+    if (!vm.hotRegisterer.getInstance(vm.id)) {
+      await vm.hotRegisterer.registerInstance(vm.id, vm.hotSettings)
+    }
     vm.filteredArray = vm.source;
     vm.generateColumnHeaders(vm.source);
     vm.hotRegisterer.getInstance(vm.id).updateSettings({
