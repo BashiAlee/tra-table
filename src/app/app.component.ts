@@ -47,8 +47,6 @@ export class AppComponent implements OnChanges{
   hotSettings: Handsontable.GridSettings = {
     rowHeaders: false,
     stretchH: 'all',
-    width: '100%',
-    height: '40vh',
     undo: true,
     autoWrapRow: true,
     manualRowResize: true,
@@ -165,7 +163,9 @@ export class AppComponent implements OnChanges{
       readOnly: vm.settings && vm.settings.hasOwnProperty('readOnly') ? vm.settings.readOnly: true,
       filters: vm.settings &&  vm.settings.hasOwnProperty('hasFilter') ? vm.settings.hasFilter: true,
       colHeaders: colHeaders,
-      columns: colTypes
+      columns: colTypes,
+      height: vm.settings && vm.settings.hasOwnProperty('height') ? vm.settings.height: 'auto',
+      width: vm.settings && vm.settings.hasOwnProperty('width') ? vm.settings.width: '100%',
     })
 
     if (vm.settings && vm.settings.hasContextMenu) {
