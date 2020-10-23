@@ -1,5 +1,23 @@
+<button (click)="click1()">1</button>
+<button (click)="click2()">2</button>
+<button (click)="click3()">3</button>
+<div class="col-md-12 text-center" *ngIf="assignedCalled">
+    <div class="assignee d-inline-block">
+      <form class="form-inline mt-10">
+        <div class="form-group mx-sm-3 mb-2">
+          <select class="form-control-sm form-control" [(ngModel)]="selectedAgent" [ngModelOptions]="{standalone: true}">
+            <option selected value="" disabled>Select Assignee</option>
+            <option *ngFor="let agents of agentsList" [value]="agents.email">{{agents.name}}</option>
+          </select>
+        </div>
+        </form>
+      </div>
+        <button type="submit" class="btn btn-primary mb-2 btn-sm" [disabled]="!selectedAgent" (click)="assignAgentToList()">Assign</button>
+
+    </div>
+
 <app-root [source]="dataset" (getFiltered)="get($event)" (getSelected)="gets($event)" [settings]="settings"
 
-(getAssignedList)="getList($event)" (getUnassignedList)="getUnList($event)"
+(getAssignedList)="getList($event)" (getUnassignedList)="getUnList($event)" (getFiltersList)="appliedFiltered($event)"
 
 ></app-root>

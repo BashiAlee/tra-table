@@ -7,6 +7,6 @@ const concat = require('concat');
     './dist/angular-table-element/main.js'
   ];
 
-  await fs.ensureDir('../../Express-Screen/src/assets');
-  await concat(files, '../../Express-Screen/src/assets/tra-table.js');
+  await fs.ensureDir('../../Packages');
+  await concat(files, '../../TRA-table/New-folder/tra-table.js');
 })();

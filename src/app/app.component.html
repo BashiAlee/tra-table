@@ -4,7 +4,7 @@
     <div class="col-md-12">
       <button *ngIf="settings?.isExport" type="submit" class="btn btn-primary mb-3 ml-3 float-right" (click)="exportFile()">Export</button>
       <button *ngIf="hasFilter" type="submit" class="btn btn-primary mb-3 float-right" (click)="clearFilter()">Clear Filter</button>
-
+      <p *ngIf="selectedRowsCount > 0 ">{{selectedRowsCount}} {{selectedRowsCount == 1 ? 'row' : 'rows'}} selected</p>
       <hot-table [hotId]="id" [settings]="hotSettings" ></hot-table>
 
     </div>
